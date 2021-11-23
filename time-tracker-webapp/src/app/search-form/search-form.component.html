@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          name="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          ngModel
+          email
+        />
+        <div id="emailHelp" class="form-text">
+          Email address of the employee you want to view records.
+        </div>
+        <div
+          *ngIf="searchForm.invalid && (searchForm.dirty || searchForm.touched)"
+          class="alert alert-danger formerror"
+        >
+          Valid email address is required
+        </div>
+      </div>
+      <button
+        [disabled]="searchForm.invalid || !searchForm.value.email"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+  <table class="table" *ngIf="getRecordList()">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of getRecordList(); let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ record.email }}</td>
+        <td>{{ record.start | date:'dd/MM/yyyy h:mm a z'}}</td>
+        <td>{{ record.end | date:'dd/MM/yyyy h:mm a z' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
