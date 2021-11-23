@@ -6,6 +6,6 @@ time-tracker-webapp is a frontend Angular app which acts as a webapp frontend fo
 
 ## Build and Deploy Containers
 
-Run the "docker-compose up --build -d" to build and run the applications
+Run the "docker-compose up --build -d" to build and run the applications from the current folder
 
 
