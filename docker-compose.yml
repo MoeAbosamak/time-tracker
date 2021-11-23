@@ -2,7 +2,7 @@ version: '3'
 
 services:
   timetrackerlegacy:
-    image: 'alirizasaral/timetracker'
+    image: 'alirizasaral/timetracker:1'
     ports:
            - "8070:8080"
   timetrackerwrapper:
@@ -13,7 +13,6 @@ services:
            - "timetrackerlegacy"
     depends_on:
            - "timetrackerlegacy"
-    restart: always
   timetrackerwebapp:
     build: ./time-tracker-webapp/
     links:
