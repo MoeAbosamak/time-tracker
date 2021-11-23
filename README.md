@@ -8,4 +8,7 @@ time-tracker-webapp is a frontend Angular app which acts as a webapp frontend fo
 
 Run the `docker-compose up --build -d` to build and run the applications from the current folder
 
+## Access the Webapp
+
+From browser, go to `http://localhost:8080`
 
