@@ -1,0 +1,15 @@
+challenge\timetrackerwrapper\data\model\timeTrackerLegacy\Record.class
+challenge\timetrackerwrapper\config\BasicConfig.class
+challenge\timetrackerwrapper\data\model\timeTrackerLegacy\PostRecord.class
+challenge\timetrackerwrapper\mapper\RecordMapper.class
+challenge\timetrackerwrapper\data\model\timeTrackerLegacy\RecordRequest.class
+challenge\timetrackerwrapper\mapper\RecordMapperImpl.class
+challenge\timetrackerwrapper\TimeTrackerWrapperApplication.class
+challenge\timetrackerwrapper\service\RecordServiceImpl.class
+challenge\timetrackerwrapper\service\RecordService.class
+challenge\timetrackerwrapper\controller\RecordController.class
+challenge\timetrackerwrapper\data\model\timeTrackerLegacy\Record$RecordBuilder.class
+challenge\timetrackerwrapper\data\dto\RecordDTO$RecordDTOBuilder.class
+challenge\timetrackerwrapper\data\dto\RecordDTO.class
+challenge\timetrackerwrapper\data\model\timeTrackerLegacy\PostRecord$PostRecordBuilder.class
+challenge\timetrackerwrapper\data\model\timeTrackerLegacy\RecordRequest$RecordRequestBuilder.class
