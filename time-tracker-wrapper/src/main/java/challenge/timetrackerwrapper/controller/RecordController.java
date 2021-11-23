@@ -15,14 +15,14 @@ public class RecordController {
     public RecordController(RecordServiceImpl timeTrackerLegacyImplService){
         this.timeTrackerLegacyImplService = timeTrackerLegacyImplService;
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+  
     @GetMapping("/records")
     List<RecordDTO> getRecords(@RequestParam(required = true) String email, @RequestParam(required = false) Integer offset, @RequestParam(required = false) Integer length) {
         RecordRequest recordRequest = RecordRequest.builder().email(email).length(length).offset(offset).build();
 
         return  timeTrackerLegacyImplService.getRecords(recordRequest);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+   
     @PostMapping(value = "/records")
     public RecordDTO postRecord(@RequestBody RecordDTO recordDTO) {
         return timeTrackerLegacyImplService.postRecord(recordDTO);
