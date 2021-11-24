@@ -25,11 +25,10 @@ export class CreateRecordComponent implements OnInit {
     }
     else if (
       !this.isValidDate(
-        recordForm.value.startDate ||
+        recordForm.value.startDate) ||
           !this.isValidDate(recordForm.value.endDate) ||
           !this.isValidTime(recordForm.value.startTime) ||
           !this.isValidTime(recordForm.value.endtime)
-      )
     ) {
       alert('Please select a valid date and time!');
      
@@ -59,13 +58,16 @@ export class CreateRecordComponent implements OnInit {
     return date;
   }
   isValidDate(date: any) {
-    if (!date.year || !date.month || !date.day) {
+    if (!date || !date.year || !date.month || !date.day) {
+      console.log(date)
       return false;
     }
     return true;
   }
   isValidTime(time: any) {
-    if (!time.hour || !time.minute) {
+    console.log(time)
+    if (!time || !time.hour || !time.minute) {
+    
       return false;
     }
     return true;
