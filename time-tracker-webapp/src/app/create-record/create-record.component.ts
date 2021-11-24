@@ -27,8 +27,8 @@ export class CreateRecordComponent implements OnInit {
       !this.isValidDate(
         recordForm.value.startDate ||
           !this.isValidDate(recordForm.value.endDate) ||
-          !this.isValidDate(recordForm.value.startTime) ||
-          !this.isValidDate(recordForm.value.endtime)
+          !this.isValidTime(recordForm.value.startTime) ||
+          !this.isValidTime(recordForm.value.endtime)
       )
     ) {
       alert('Please select a valid date and time!');
