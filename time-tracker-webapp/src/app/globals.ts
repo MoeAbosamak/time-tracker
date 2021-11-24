@@ -1,4 +1,4 @@
 'use strict';
 
 
-export const BASE_URL='http://timetrackerwrapper:8887/records';
+export const BASE_URL='/records';
