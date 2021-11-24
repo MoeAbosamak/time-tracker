@@ -12,5 +12,5 @@ Run the `docker-compose up --build -d` to build and run the applications from th
 
 ## Access the Webapp
 
-From browser, go to `http://localhost:8080`
+From browser, go to `http://<HOST_IP_ADDRESS>:8080` for example `http://localhost:8080`
 
