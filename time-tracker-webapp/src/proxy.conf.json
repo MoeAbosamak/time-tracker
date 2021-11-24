@@ -1,0 +1,12 @@
+{
+    "/records/*": {
+		"target" : {
+            "host": "timetrackerwrapper",
+            "port": 8081,
+            "protocol": "http:"
+        },
+      "secure": false,
+	  "logLevel" : "debug",
+	  "changeOrigin": true
+    }
+  }
