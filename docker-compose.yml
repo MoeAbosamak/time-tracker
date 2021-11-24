@@ -9,14 +9,10 @@ services:
     build: ./time-tracker-wrapper/
     ports:
            - "8887:8081"
-    links:
-           - "timetrackerlegacy"
     depends_on:
            - "timetrackerlegacy"
   timetrackerwebapp:
     build: ./time-tracker-webapp/
-    links:
-           - "timetrackerwrapper"
     depends_on:
            - "timetrackerwrapper"
     ports:
