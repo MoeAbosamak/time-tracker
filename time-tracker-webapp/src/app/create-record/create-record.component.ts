@@ -11,7 +11,7 @@ import { RecordService } from '../services/record.service';
 export class CreateRecordComponent implements OnInit {
   model: NgbDateStruct;
   date: { year: number; month: number };
-  time = { hour: 13, minute: 30 };
+  time = { hour: 1, minute: 30 };
   constructor(
     private calendar: NgbCalendar,
     private recordService: RecordService
@@ -20,25 +20,35 @@ export class CreateRecordComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(recordForm: NgForm) {
-    console.log(recordForm.value);
+    if (!recordForm.value.email){
+      alert('Please enter a valid email address!');
+    }
+    else if (
+      !this.isValidDate(
+        recordForm.value.startDate ||
+          !this.isValidDate(recordForm.value.endDate) ||
+          !this.isValidDate(recordForm.value.startTime) ||
+          !this.isValidDate(recordForm.value.endtime)
+      )
+    ) {
+      alert('Please select a valid date and time!');
+     
+    } else {
+      let startDate = this.getDate(
+        recordForm.value.startDate,
+        recordForm.value.startTime
+      );
+      let endDate = this.getDate(
+        recordForm.value.endDate,
+        recordForm.value.endTime
+      );
 
-    let startDate = this.getDate(
-      recordForm.value.startDate,
-      recordForm.value.startTime
-    );
-    let endDate = this.getDate(
-      recordForm.value.endDate,
-      recordForm.value.endTime
-    );
-
-    
       this.recordService
         .postRecord(recordForm.value.email, startDate, endDate)
         .subscribe((resp) => {
-         alert("Record Added!");
-          //this.recordList = resp as {email: string; start: Date; end: Date }[];
-        })
-  
+          alert('Record Added Successfully!');
+        });
+    }
   }
   getDate(dateObj: any, time: any) {
     let date = new Date();
@@ -46,8 +56,18 @@ export class CreateRecordComponent implements OnInit {
 
     date.setHours(time.hour);
     date.setMinutes(time.minute);
-
-    console.log(date);
     return date;
+  }
+  isValidDate(date: any) {
+    if (!date.year || !date.month || !date.day) {
+      return false;
+    }
+    return true;
+  }
+  isValidTime(time: any) {
+    if (!time.hour || !time.minute) {
+      return false;
+    }
+    return true;
   }
 }
