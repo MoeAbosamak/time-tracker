@@ -11,7 +11,6 @@ import { RecordService } from '../services/record.service';
 export class CreateRecordComponent implements OnInit {
   model: NgbDateStruct;
   date: { year: number; month: number };
-  time = { hour: 1, minute: 30 };
   constructor(
     private calendar: NgbCalendar,
     private recordService: RecordService
@@ -20,18 +19,15 @@ export class CreateRecordComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(recordForm: NgForm) {
-    if (!recordForm.value.email){
+    if (!recordForm.value.email) {
       alert('Please enter a valid email address!');
-    }
-    else if (
-      !this.isValidDate(
-        recordForm.value.startDate) ||
-          !this.isValidDate(recordForm.value.endDate) ||
-          !this.isValidTime(recordForm.value.startTime) ||
-          !this.isValidTime(recordForm.value.endtime)
+    } else if (
+      !this.isValidDate(recordForm.value.startDate) ||
+      !this.isValidDate(recordForm.value.endDate) ||
+      !this.isValidTime(recordForm.value.startTime) ||
+      !this.isValidTime(recordForm.value.endTime)
     ) {
       alert('Please select a valid date and time!');
-     
     } else {
       let startDate = this.getDate(
         recordForm.value.startDate,
@@ -59,15 +55,12 @@ export class CreateRecordComponent implements OnInit {
   }
   isValidDate(date: any) {
     if (!date || !date.year || !date.month || !date.day) {
-      console.log(date)
       return false;
     }
     return true;
   }
   isValidTime(time: any) {
-    console.log(time)
     if (!time || !time.hour || !time.minute) {
-    
       return false;
     }
     return true;
